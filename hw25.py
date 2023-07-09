@@ -1,6 +1,7 @@
 def pow(x):
     return x ** 2
 
+
 def some_gen(begin, end, func):
     """
      begin: перший елемент послідовності
@@ -8,10 +9,11 @@ def some_gen(begin, end, func):
      func: функція, яка формує значення для послідовності
     """
     co = 0
-    while co < end :
+    while co < end:
         yield begin
-        begin=func(begin)
+        begin = func(begin)
         co += 1
+
 
 from inspect import isgenerator
 
