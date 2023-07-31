@@ -10,14 +10,11 @@ class Rectangle:
         return self.get_square() == other.get_square()
 
     def __add__(self, other):
-        total_width = self.width + other.width
-        total_height = self.height + other.height
-        return Rectangle(total_width, total_height)
+        width = self.get_square() + other.get_square()
+        return Rectangle(width, 1)
 
     def __mul__(self, n):
-        new_width = self.width * n
-        new_height = self.height * n
-        return Rectangle(new_width, new_height)
+        return Rectangle(self.get_square() * n, 1)
 
     def __str__(self):
         return f"Rectangle(width={self.width}, height={self.height})"
@@ -25,11 +22,11 @@ class Rectangle:
 
 r1 = Rectangle(2, 4)
 r2 = Rectangle(3, 6)
-assert r1.get_square() == 8, 'Test1'
-assert r2.get_square() == 18, 'Test2'
+assert r1.get_square() == 8, "Test1"
+assert r2.get_square() == 18, "Test2"
 
 r3 = r1 + r2
-assert r3.get_square() == 26, 'Test3'
+assert r3.get_square() == 26, "Test3"
 
 r4 = r1 * 4
-assert r4.get_square() == 32, 'Test4'
+assert r4.get_square() == 32, "Test4"
