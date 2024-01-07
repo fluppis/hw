@@ -13,7 +13,7 @@ def unlock_vm():
 root = tk.Tk()
 root.title("Разблокировка виртуальной машины")
 
-node_label = tk.Label(root, text="Имя узла (Node):")d
+node_label = tk.Label(root, text="Имя узла (Node):"
 node_label.pack()
 
 node_entry = tk.Entry(root)
