@@ -6,7 +6,7 @@ def unlock_vm():
     node_ip = node_ip_entry.get()
     vmid = vmid_entry.get()
     proxmox = ProxmoxAPI(
-        f"{node_ip}", user="root@pam", password="Moresrv1", verify_ssl=False
+        f"{node_ip}", user="root@pam", password="YOUR_PASSWORD", verify_ssl=False
     )
     proxmox.nodes(node).qemu(vmid).config.post(delete='lock',skiplock='1')
 
