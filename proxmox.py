@@ -1,7 +1,6 @@
 from proxmoxer import ProxmoxAPI
 import tkinter as tk
 from cryptography.fernet import Fernet
-from cryptography.fernet import Fernet
 def decrypt_password(key, encrypted_password):
     cipher_suite = Fernet(key)
     decrypted_password = cipher_suite.decrypt(encrypted_password)
