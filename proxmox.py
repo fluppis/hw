@@ -82,7 +82,7 @@ def show_message():
     node_ip = node_ip_entry.get()
     vmid = vmid_entry.get()
     proxmox = ProxmoxAPI(
-        f"{node_ip}", user="root@pam", password="Moresrv1", verify_ssl=False
+        f"{node_ip}", user="root@pam", password="YOUR", verify_ssl=False
     )
     vm_config = proxmox.nodes(node).qemu(vmid).config.get()
     lock_status = vm_config.get("lock")
