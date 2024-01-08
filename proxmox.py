@@ -81,9 +81,33 @@ def show_message():
     node = node_entry.get()
     node_ip = node_ip_entry.get()
     vmid = vmid_entry.get()
-    proxmox = ProxmoxAPI(
-        f"{node_ip}", user="root@pam", password="YOUR", verify_ssl=False
-    )
+    if node == nodes:
+        with open('pass1.txt', 'r') as file:
+            lines = file.readlines()
+        encryption_key = lines[1].split(':')[1].strip()
+        encrypted_password = lines[2].split(':')[1].strip()
+        decrypted_password = decrypt_password(encryption_key, encrypted_password)
+        proxmox = ProxmoxAPI(
+            f"{node_ip}", user="root@pam", password=f"{decrypted_password}", verify_ssl=False
+        )
+    elif node == nodes2:
+        with open('pass2.txt', 'r') as file:
+            lines = file.readlines()
+        encryption_key = lines[1].split(':')[1].strip()
+        encrypted_password = lines[2].split(':')[1].strip()
+        decrypted_password = decrypt_password(encryption_key, encrypted_password)
+        proxmox = ProxmoxAPI(
+            f"{node_ip}", user="root@pam", password=f"{decrypted_password}", verify_ssl=False
+        )
+    elif node == nodes3:
+        with open('pass3.txt', 'r') as file:
+            lines = file.readlines()
+        encryption_key = lines[1].split(':')[1].strip()
+        encrypted_password = lines[2].split(':')[1].strip()
+        decrypted_password = decrypt_password(encryption_key, encrypted_password)
+        proxmox = ProxmoxAPI(
+            f"{node_ip}", user="root@pam", password=f"{decrypted_password}", verify_ssl=False
+        )
     vm_config = proxmox.nodes(node).qemu(vmid).config.get()
     lock_status = vm_config.get("lock")
     message = f"Статус: {lock_status}"
