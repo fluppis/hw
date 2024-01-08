@@ -17,7 +17,6 @@ with open('pass2.txt', 'r') as file:
 with open('pass3.txt', 'r') as file:
     lines = file.readlines()
     nodes3 = lines[0].split(':')[1].strip()
-print(nodes2)
 def unlock_vm():
     node = node_entry.get()
     node_ip = node_ip_entry.get()
