@@ -13,7 +13,7 @@ def encrypt_password(key, password):
 # Генерация ключа шифрования (ключ должен храниться в безопасном месте)
 encryption_key = generate_key()
 # Пароль, который нужно сохранить
-original_password = "Moresrv1"
+original_password = "1"
 
 # Шифрование пароля
 encrypted_password = encrypt_password(encryption_key, original_password)
